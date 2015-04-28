@@ -12,9 +12,13 @@ spring:
     url: jdbc:jtds:sqlserver://<host>/<db>
     username: <username>
     password: <password>
+    initialSize: 10 # default is 10
+    maxActive: 100  # default is 100
 
   jpa:
     show-sql: true
     database-platform: org.hibernate.dialect.SQLServer2008Dialect
     hibernate:
       ddl-auto: validate
+    properties:
+      hibernate.format_sql: false # flip to true for formatting
