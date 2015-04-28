@@ -1,0 +1,20 @@
+spring:
+  application.name: My Application
+  profiles.active: development
+
+---
+
+spring:
+  profiles: development
+
+  datasource:
+    driverClassName: net.sourceforge.jtds.jdbc.Driver
+    url: jdbc:jtds:sqlserver://<host>/<db>
+    username: <username>
+    password: <password>
+
+  jpa:
+    show-sql: true
+    database-platform: org.hibernate.dialect.SQLServer2008Dialect
+    hibernate:
+      ddl-auto: validate
