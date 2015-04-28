@@ -11,7 +11,7 @@ spring:
     driverClassName: net.sourceforge.jtds.jdbc.Driver
     url: jdbc:jtds:sqlserver://<host>/<db>
     username: <username>
-    password: <password>
+    password: ENC(<password>)
     initialSize: 10 # default is 10
     maxActive: 100  # default is 100
 
