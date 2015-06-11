@@ -32,6 +32,12 @@ public class ApplicationConfiguration
     @Value("${spring.datasource.maxActive}")
     private int maxActive;
 
+    @Value( "${spring.datasource.validationQuery}" )
+    private String validationQuery;
+
+    @Value( "${spring.datasource.validationInterval}" )
+    private int validationInterval;
+
     @Bean
     public DataSource datasource()
             throws IOException
@@ -43,6 +49,12 @@ public class ApplicationConfiguration
         ds.setPassword(getSecurePassword());
         ds.setInitialSize(initialSize);
         ds.setMaxActive(maxActive);
+
+        // Set for reconnect.
+        ds.setValidationQuery(validationQuery);
+        ds.setTestOnBorrow(true);
+        ds.setValidationInterval(validationInterval);
+
         return ds;
     }
 

@@ -14,10 +14,12 @@ spring:
     password: ENC(<password>)
     initialSize: 10 # default is 10
     maxActive: 100  # default is 100
+    validationQuery: select 1
+    validationInterval: 30000 # in milliseconds
 
   jpa:
     show-sql: true
-    database-platform: org.hibernate.dialect.SQLServer2008Dialect
+    database-platform: org.hibernate.dialect.SQLServer2012Dialect
     hibernate:
       ddl-auto: validate
     properties:
